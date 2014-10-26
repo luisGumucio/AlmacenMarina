@@ -37,7 +37,7 @@ namespace AlmacenMarina.View
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            foreach (var item in rp.retSale(CbValue.SelectedItem.ToString()))
+            foreach (var item in rp.reportSale(CbValue.SelectedItem.ToString()))
             {
                 DatGridContent.Items.Add(item);
             }

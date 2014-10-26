@@ -17,7 +17,7 @@ namespace AlmacenMarina.Controls
             Rp = new List<Report>();
         }
 
-        public List<Report> retSale(String valor)
+        public List<Report> reportSale(String valor)
         {
             var t = db.Sales.Join(db.DetailSales, b => b.IdSales, d => d.IdSales, (b, d) => new { b, d }).Where(p => p.b.DateSales.Value.Month == fecha(valor));
             int y = 1;
@@ -37,7 +37,7 @@ namespace AlmacenMarina.Controls
             }
             return Rp;
         }
-        public List<Report> reptBuy (string valor)
+        public List<Report> reportBuy (string valor)
         {
             var t=db.Buy.Join(db.DetailBuy,b=>b.IdBuy,d=>d.IdBuy,(b,d)=>new{b,d}).Where(p => p.b.DateBuy.Value.Month == fecha(valor));
             int y=1;

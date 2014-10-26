@@ -30,7 +30,7 @@ namespace AlmacenMarina.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            foreach (var item in rp.reptBuy(CbValue.SelectedItem.ToString()))
+            foreach (var item in rp.reportBuy(CbValue.SelectedItem.ToString()))
 	        {
                 DatGridContent.Items.Add(item);
 	        } 
