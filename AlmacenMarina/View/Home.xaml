@@ -1,0 +1,177 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="AlmacenMarina.Home"
+	x:Name="Window"
+	Title="Home"
+	Height="450" Width="625" WindowStyle="None" WindowState="Maximized" Icon="/AlmacenMarina;component/Imagenes/truck.png">
+
+    <Window.Resources>
+        <Style x:Key="StyleCerrar" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Rectangle x:Name="rectangle" RadiusY="7" RadiusX="7">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/Knob%20Cancel.ico" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="" Cursor="IBeam"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="OpacityMask" TargetName="contentPresenter">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <ImageBrush/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RadiusX" TargetName="rectangle" Value="5.54"/>
+                                <Setter Property="RadiusY" TargetName="rectangle" Value="5.54"/>
+                                <Setter Property="Margin" TargetName="rectangle" Value="-1.688,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Margin" TargetName="rectangle" Value="2.125,0,0,2"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="rectangle" RadiusY="7" RadiusX="7">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/Knob Remove.ico" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Margin" TargetName="rectangle" Value="0,0,-1.563,0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Margin" TargetName="rectangle" Value="0,0,1.563,1.563"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuItemStyle1" TargetType="{x:Type MenuItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.488*"/>
+                                <RowDefinition Height="0.512*"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="#FFF33A3A" Height="34" Margin="-169.667,0,-6.667,-34" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, Height" Grid.Row="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    </Window.Triggers>
+    <Grid>
+        <DockPanel Margin="0,58,0,0">
+
+            <DockPanel DockPanel.Dock="Left" Width="176">
+                <Grid DockPanel.Dock="Top" Height="37" Background="Black">
+                    <Rectangle HorizontalAlignment="Left" Margin="5.25,4.25,0,2.25" Width="39.75">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/monitor.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Label Content="Menu Principal" HorizontalAlignment="Right" Margin="0,2,-6.667,2.25" Foreground="White" Width="137.667" FontSize="18.667"/>
+                </Grid>
+                <Menu x:Name="menuDate"
+        			Background="White" BorderBrush="Blue" BorderThickness="1" DockPanel.Dock="Bottom">
+                    <MenuItem x:Name="menuItem" Header="Reportes Ventas" IsCheckable="true" Width="171" Height="26" Click="menuItem_Click" >
+                        <MenuItem.Icon>
+                            <Image Source="/AlmacenMarina;component/Imagenes/Iconos/home.png" Width="20" Height="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+
+            <Frame x:Name="frmContent" NavigationUIVisibility="Hidden">
+                <Frame.Background>
+                    <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/10729038_10204893158706942_92866_n.jpg"/>
+                </Frame.Background>
+            </Frame>
+        </DockPanel>
+        <DockPanel LastChildFill="False" Height="58" VerticalAlignment="Top">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/colores_claros-1024x640.jpeg" TileMode="FlipY"/>
+            </DockPanel.Background>
+            <Grid DockPanel.Dock="Top" Height="30.42">
+                <Label x:Name="lblUser" Content="Usuario:" HorizontalAlignment="Left" Margin="8,-5.13,0,0" Width="85.493" Background="#002A74D6" Foreground="#FF5B9AFF" FontSize="21.333"/>
+                <Button x:Name="btClosed" Content="" HorizontalAlignment="Right" Height="25.625" Margin="0,0,0,5.13" Style="{DynamicResource StyleCerrar}" VerticalAlignment="Bottom" Width="27.665" Cursor="Hand" Click="btClosed_Click" />
+                <Button x:Name="btMinize" Content="" HorizontalAlignment="Right" Height="25.625" Margin="0,0,31.665,5.13" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Bottom" Width="27.665" Cursor="Hand" Click="btMinize_Click" />
+                <Label x:Name="lblUserActivo" Content="Desconocido" HorizontalAlignment="Left" Margin="97.493,-5.13,0,0" Width="133.993" Background="#00C5D62A" Foreground="#FF5BFF6D" FontSize="21.333"/>
+
+            </Grid>
+            <Menu x:Name="MenuInicio" 
+              Foreground="White" FontSize="16" FontWeight="Bold" Height="27" DockPanel.Dock="Bottom"  >
+                <Menu.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF3A60AD" Offset="0.528"/>
+                        <GradientStop Color="#FF6A85D8" Offset="0.01"/>
+                        <GradientStop Color="#FF3464C4" Offset="1"/>
+                        <GradientStop Color="#FF202E7E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Menu.Background>
+
+                <MenuItem x:Name="ItemInicio" Header="Inicio" IsCheckable="true" >
+                    <MenuItem.Icon>
+                        <Image Source="/AlmacenMarina;component/Imagenes/Iconos/home%20%282%29.png" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ItemUser" Header="Usuario" IsCheckable="true" Foreground="White" FontSize="16" Click="ItemUser_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/AlmacenMarina;component/Imagenes/Iconos/icoPhotoProveedor.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ItemSales" Header="Ventas" IsCheckable="true" Foreground="White" FontSize="16" Click="ItemSales_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/AlmacenMarina;component/Imagenes/Iconos/shopping_cart.png" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ItemBuy" Header="Compras"  Foreground="White" FontSize="16" Click="ItemBuy_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/AlmacenMarina;component/Imagenes/Iconos/shopping_cart.png" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ItemReport" Header="Reportes" Click="ItemReport_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/AlmacenMarina;component/Imagenes/Iconos/chart_pie.png" Width="20" Height="20" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+    </Grid>
+</Window>
