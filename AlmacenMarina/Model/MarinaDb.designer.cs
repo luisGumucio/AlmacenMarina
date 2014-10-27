@@ -54,15 +54,15 @@ namespace AlmacenMarina.Model
     partial void InsertSales(Sales instance);
     partial void UpdateSales(Sales instance);
     partial void DeleteSales(Sales instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertUserRol(UserRol instance);
     partial void UpdateUserRol(UserRol instance);
     partial void DeleteUserRol(UserRol instance);
     partial void InsertProduct(Product instance);
     partial void UpdateProduct(Product instance);
     partial void DeleteProduct(Product instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public MarinaDbDataContext() : 
@@ -159,14 +159,6 @@ namespace AlmacenMarina.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<User> User
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UserRol> UserRol
 		{
 			get
@@ -180,6 +172,14 @@ namespace AlmacenMarina.Model
 			get
 			{
 				return this.GetTable<Product>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> User
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -1720,252 +1720,6 @@ namespace AlmacenMarina.Model
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _IdUser;
-		
-		private string _UserName;
-		
-		private string _Paswrod;
-		
-		private System.Nullable<bool> _Enable;
-		
-		private EntitySet<Buy> _Buy;
-		
-		private EntitySet<Person> _Person;
-		
-		private EntitySet<Sales> _Sales;
-		
-		private EntitySet<UserRol> _UserRol;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdUserChanging(System.Guid value);
-    partial void OnIdUserChanged();
-    partial void OnUserNameChanging(string value);
-    partial void OnUserNameChanged();
-    partial void OnPaswrodChanging(string value);
-    partial void OnPaswrodChanged();
-    partial void OnEnableChanging(System.Nullable<bool> value);
-    partial void OnEnableChanged();
-    #endregion
-		
-		public User()
-		{
-			this._Buy = new EntitySet<Buy>(new Action<Buy>(this.attach_Buy), new Action<Buy>(this.detach_Buy));
-			this._Person = new EntitySet<Person>(new Action<Person>(this.attach_Person), new Action<Person>(this.detach_Person));
-			this._Sales = new EntitySet<Sales>(new Action<Sales>(this.attach_Sales), new Action<Sales>(this.detach_Sales));
-			this._UserRol = new EntitySet<UserRol>(new Action<UserRol>(this.attach_UserRol), new Action<UserRol>(this.detach_UserRol));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid IdUser
-		{
-			get
-			{
-				return this._IdUser;
-			}
-			set
-			{
-				if ((this._IdUser != value))
-				{
-					this.OnIdUserChanging(value);
-					this.SendPropertyChanging();
-					this._IdUser = value;
-					this.SendPropertyChanged("IdUser");
-					this.OnIdUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this.OnUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._UserName = value;
-					this.SendPropertyChanged("UserName");
-					this.OnUserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paswrod", DbType="NVarChar(50)")]
-		public string Paswrod
-		{
-			get
-			{
-				return this._Paswrod;
-			}
-			set
-			{
-				if ((this._Paswrod != value))
-				{
-					this.OnPaswrodChanging(value);
-					this.SendPropertyChanging();
-					this._Paswrod = value;
-					this.SendPropertyChanged("Paswrod");
-					this.OnPaswrodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Enable", DbType="Bit")]
-		public System.Nullable<bool> Enable
-		{
-			get
-			{
-				return this._Enable;
-			}
-			set
-			{
-				if ((this._Enable != value))
-				{
-					this.OnEnableChanging(value);
-					this.SendPropertyChanging();
-					this._Enable = value;
-					this.SendPropertyChanged("Enable");
-					this.OnEnableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Buy", Storage="_Buy", ThisKey="IdUser", OtherKey="IdUser")]
-		public EntitySet<Buy> Buy
-		{
-			get
-			{
-				return this._Buy;
-			}
-			set
-			{
-				this._Buy.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Person", Storage="_Person", ThisKey="IdUser", OtherKey="IdUser")]
-		public EntitySet<Person> Person
-		{
-			get
-			{
-				return this._Person;
-			}
-			set
-			{
-				this._Person.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Sales", Storage="_Sales", ThisKey="IdUser", OtherKey="IdUser")]
-		public EntitySet<Sales> Sales
-		{
-			get
-			{
-				return this._Sales;
-			}
-			set
-			{
-				this._Sales.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserRol", Storage="_UserRol", ThisKey="IdUser", OtherKey="IdUser")]
-		public EntitySet<UserRol> UserRol
-		{
-			get
-			{
-				return this._UserRol;
-			}
-			set
-			{
-				this._UserRol.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Buy(Buy entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Buy(Buy entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_Person(Person entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Person(Person entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_Sales(Sales entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Sales(Sales entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_UserRol(UserRol entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserRol(UserRol entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserRol")]
 	public partial class UserRol : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2390,6 +2144,252 @@ namespace AlmacenMarina.Model
 		{
 			this.SendPropertyChanging();
 			entity.Product = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IdUser;
+		
+		private string _UserName;
+		
+		private string _Paswrod;
+		
+		private System.Nullable<bool> _Enable;
+		
+		private EntitySet<Buy> _Buy;
+		
+		private EntitySet<Person> _Person;
+		
+		private EntitySet<Sales> _Sales;
+		
+		private EntitySet<UserRol> _UserRol;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdUserChanging(System.Guid value);
+    partial void OnIdUserChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPaswrodChanging(string value);
+    partial void OnPaswrodChanged();
+    partial void OnEnableChanging(System.Nullable<bool> value);
+    partial void OnEnableChanged();
+    #endregion
+		
+		public User()
+		{
+			this._Buy = new EntitySet<Buy>(new Action<Buy>(this.attach_Buy), new Action<Buy>(this.detach_Buy));
+			this._Person = new EntitySet<Person>(new Action<Person>(this.attach_Person), new Action<Person>(this.detach_Person));
+			this._Sales = new EntitySet<Sales>(new Action<Sales>(this.attach_Sales), new Action<Sales>(this.detach_Sales));
+			this._UserRol = new EntitySet<UserRol>(new Action<UserRol>(this.attach_UserRol), new Action<UserRol>(this.detach_UserRol));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IdUser
+		{
+			get
+			{
+				return this._IdUser;
+			}
+			set
+			{
+				if ((this._IdUser != value))
+				{
+					this.OnIdUserChanging(value);
+					this.SendPropertyChanging();
+					this._IdUser = value;
+					this.SendPropertyChanged("IdUser");
+					this.OnIdUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paswrod", DbType="NVarChar(MAX)")]
+		public string Paswrod
+		{
+			get
+			{
+				return this._Paswrod;
+			}
+			set
+			{
+				if ((this._Paswrod != value))
+				{
+					this.OnPaswrodChanging(value);
+					this.SendPropertyChanging();
+					this._Paswrod = value;
+					this.SendPropertyChanged("Paswrod");
+					this.OnPaswrodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Enable", DbType="Bit")]
+		public System.Nullable<bool> Enable
+		{
+			get
+			{
+				return this._Enable;
+			}
+			set
+			{
+				if ((this._Enable != value))
+				{
+					this.OnEnableChanging(value);
+					this.SendPropertyChanging();
+					this._Enable = value;
+					this.SendPropertyChanged("Enable");
+					this.OnEnableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Buy", Storage="_Buy", ThisKey="IdUser", OtherKey="IdUser")]
+		public EntitySet<Buy> Buy
+		{
+			get
+			{
+				return this._Buy;
+			}
+			set
+			{
+				this._Buy.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Person", Storage="_Person", ThisKey="IdUser", OtherKey="IdUser")]
+		public EntitySet<Person> Person
+		{
+			get
+			{
+				return this._Person;
+			}
+			set
+			{
+				this._Person.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Sales", Storage="_Sales", ThisKey="IdUser", OtherKey="IdUser")]
+		public EntitySet<Sales> Sales
+		{
+			get
+			{
+				return this._Sales;
+			}
+			set
+			{
+				this._Sales.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserRol", Storage="_UserRol", ThisKey="IdUser", OtherKey="IdUser")]
+		public EntitySet<UserRol> UserRol
+		{
+			get
+			{
+				return this._UserRol;
+			}
+			set
+			{
+				this._UserRol.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Buy(Buy entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Buy(Buy entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_Person(Person entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Person(Person entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_Sales(Sales entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Sales(Sales entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_UserRol(UserRol entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserRol(UserRol entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }

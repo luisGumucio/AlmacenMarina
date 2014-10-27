@@ -15,6 +15,9 @@ namespace AlmacenMarina.View
         private Guid idUser;
         private MarinaDbDataContext db = new MarinaDbDataContext();
         private ControlUser control = new ControlUser();
+        static string vlTexto;
+        static string vlTextoEncriptado;
+        static string vlEncriptado;
         public UserCreate(Guid idUser)
         {
             this.idUser = idUser;
@@ -73,7 +76,7 @@ namespace AlmacenMarina.View
             PersonUser result = new PersonUser();
             result.User.IdUser = id;
             result.User.UserName = TxtUsuario.Text;
-            result.User.Paswrod = TxtContaseña.Text;
+            result.User.Paswrod =ecriptar(TxtContaseña.Text);
             result.Roles.NameRol = CbxRol.SelectedItem.ToString();
             result.Person.Name = TxtNombre.Text;
             result.Person.LastName = TxtApellido.Text;
@@ -98,6 +101,25 @@ namespace AlmacenMarina.View
             TxtContaseña.Clear();
             TxtNombre.Clear();
             TxtUsuario.Clear();
+        }
+
+        private String ecriptar(String contraseña)
+        {
+            //Texto a encriptar
+            vlTexto = contraseña;
+
+            //Mandamos a encriptar el texto, nos retorna el la encriptacion junto con las claves
+            vlEncriptado = RijndaelEncrypt.Encode(vlTexto).ToString();
+
+            string[] vlEnEncrypt = vlEncriptado.Split('/');
+
+            string[] vlEncode = vlEnEncrypt[0].Split(',');
+
+            foreach (string value in vlEncode)
+            {
+                vlTextoEncriptado = vlTextoEncriptado + value;
+            }
+            return vlEncriptado;
         }
     }
 }

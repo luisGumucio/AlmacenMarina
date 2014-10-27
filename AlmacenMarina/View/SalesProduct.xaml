@@ -72,7 +72,7 @@
         </Rectangle>
         <Label Content="Codigo" HorizontalAlignment="Left" Margin="395.5,171.6,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Times New Roman"/>
         <TextBox x:Name="TxtCodBarra" Height="30" Margin="395.5,204,585.5,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="16" KeyDown="TxtCodBarra_KeyDown"/>
-        <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="97,306,0,138" x:Name="DatGridContent" Width="669" FontSize="24" FontFamily="Lucida Sans Unicode" FontWeight="Normal" AlternatingRowBackground="#FFE52020" Background="#FF9DE1FF">
+        <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="97,306,0,138" x:Name="DatGridContent" Width="669" FontSize="24" FontFamily="Lucida Sans Unicode" FontWeight="Normal" AlternatingRowBackground="#FFE52020" Background="#FF9DE1FF" CellEditEnding="DatGridContent_CellEditEnding">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" Binding="{Binding IdProducto}" />
                 <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" />

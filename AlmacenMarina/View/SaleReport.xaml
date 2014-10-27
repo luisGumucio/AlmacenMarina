@@ -6,6 +6,11 @@
       mc:Ignorable="d" 
       Width="1182" Height="720"
 	Title="SaleReport">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid Height="38" Width="210"/>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid>
         <Grid.Background>
@@ -21,7 +26,7 @@
                 <ImageBrush ImageSource="/AlmacenMarina;component/Imagenes/colores_claros-1024x640.jpeg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="86,218,0,42" x:Name="DatGridContent" Width="1021" FontSize="24" FontFamily="Lucida Sans Unicode" FontWeight="Normal" AlternatingRowBackground="#FFE52020" Background="#FF9DE1FF" >
+        <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="86,218,0,42" x:Name="DatGridContent" Width="1021" FontSize="24" FontFamily="Lucida Sans Unicode" FontWeight="Normal" AlternatingRowBackground="#FFE52020" Background="#FF9DE1FF" ItemTemplate="{DynamicResource DataTemplate1}" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdProducto}" />
                 <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" />

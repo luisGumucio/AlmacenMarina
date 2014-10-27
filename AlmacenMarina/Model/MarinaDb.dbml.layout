@@ -50,19 +50,13 @@
         <elementListCompartment Id="5e0a2d04-0a15-470a-8edd-198a267f01d3" absoluteBounds="3.515, 8.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0528bcd8-0530-433c-9597-c61deb06fdea" absoluteBounds="0.75, 6.375, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/MarinaDbDataContext/User" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d8979fd7-0a43-4bf5-bc7b-3eb1821efab6" absoluteBounds="0.765, 6.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="fe50751d-a539-489b-8719-540d5da7011b" absoluteBounds="3.5, 3.5, 2, 1.193992513020834">
       <DataClassMoniker Name="/MarinaDbDataContext/UserRol" />
       <nestedChildShapes>
         <elementListCompartment Id="7d27e0db-0d36-47c9-9600-5ec71bf872a1" absoluteBounds="3.515, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 6.56814697265625); (5.74479416666667 : 6.56814697265625 : JumpStart); (5.91146083333333 : 6.56814697265625 : JumpEnd); (6.25 : 6.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 6.56814697265625); (6.25 : 6.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MarinaDbDataContext/Buy/Buy_DetailBuy" />
       <nodes>
         <classShapeMoniker Id="d522823c-9b89-4d0b-898f-0706cacc61d2" />
@@ -76,38 +70,10 @@
         <classShapeMoniker Id="c47d5736-e108-4a63-bf5a-de52decfeebd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.81814697265625); (3.5 : 6.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Buy" />
-      <nodes>
-        <classShapeMoniker Id="0528bcd8-0530-433c-9597-c61deb06fdea" />
-        <classShapeMoniker Id="d522823c-9b89-4d0b-898f-0706cacc61d2" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 7.95359537760417); (1.75 : 11.2027498372396); (3.5 : 11.2027498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Person" />
-      <nodes>
-        <classShapeMoniker Id="0528bcd8-0530-433c-9597-c61deb06fdea" />
-        <classShapeMoniker Id="44aee63f-edc8-4394-85c4-dd8ddee110e5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 7.95359537760417); (2.2812525 : 8.69314697265625); (3.5 : 8.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Sales" />
-      <nodes>
-        <classShapeMoniker Id="0528bcd8-0530-433c-9597-c61deb06fdea" />
-        <classShapeMoniker Id="e46e1091-fa78-4ba0-986b-e2c3133333a0" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(2.75 : 4.09699625651042); (3.5 : 4.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MarinaDbDataContext/Roles/Roles_UserRol" />
       <nodes>
         <classShapeMoniker Id="40d61f5a-f07e-4909-a1df-3c32de2ae472" />
-        <classShapeMoniker Id="fe50751d-a539-489b-8719-540d5da7011b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.37621330413662); (3.125 : 6.00121330413662); (3.125 : 4.42674638476563); (3.5 : 4.42674638476563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/MarinaDbDataContext/User/User_UserRol" />
-      <nodes>
-        <classShapeMoniker Id="0528bcd8-0530-433c-9597-c61deb06fdea" />
         <classShapeMoniker Id="fe50751d-a539-489b-8719-540d5da7011b" />
       </nodes>
     </associationConnector>
@@ -117,21 +83,21 @@
         <elementListCompartment Id="7557da3a-564b-4cc0-a70e-3a946a4af83a" absoluteBounds="3.89, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.875 : 2.72679768880208); (6.25 : 2.72679768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.875 : 2.72679768880208); (6.25 : 2.72679768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MarinaDbDataContext/Product/Product_CodeProduct" />
       <nodes>
         <classShapeMoniker Id="5100be8b-e3a4-4b07-a99b-8eadeddf8527" />
         <classShapeMoniker Id="29a90f0b-e0fb-4f51-8e91-adeb5f9c0e41" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.71875 : 3.20359537760417); (5.71875 : 5.71875); (5.74479416666667 : 5.71875 : JumpStart); (5.91146083333333 : 5.71875 : JumpEnd); (6.25 : 5.71875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.71875 : 3.20359537760417); (5.71875 : 5.71875); (5.74479416666667 : 5.71875 : JumpStart); (5.91146083333333 : 5.71875 : JumpEnd); (6.25 : 5.71875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MarinaDbDataContext/Product/Product_DetailBuy" />
       <nodes>
         <classShapeMoniker Id="5100be8b-e3a4-4b07-a99b-8eadeddf8527" />
         <classShapeMoniker Id="53951f04-4e09-4f1c-a047-8301af4c0528" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.8281275 : 3.20359537760417); (5.8281275 : 9.75564697265625); (6.25 : 9.75564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.8281275 : 3.20359537760417); (5.8281275 : 9.75564697265625); (6.25 : 9.75564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MarinaDbDataContext/Product/Product_DetailSales" />
       <nodes>
         <classShapeMoniker Id="5100be8b-e3a4-4b07-a99b-8eadeddf8527" />
@@ -143,6 +109,40 @@
       <nodes>
         <classShapeMoniker Id="e543131b-1f96-432f-8804-4b67d080d0bf" />
         <classShapeMoniker Id="5100be8b-e3a4-4b07-a99b-8eadeddf8527" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6e0c8ee8-5332-4844-965d-3b8493b393dc" absoluteBounds="1.25, 5.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/MarinaDbDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f730fe87-8b31-4606-8bd6-a6886fd260ef" absoluteBounds="1.2650000000000001, 6.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 6.56814697265625); (3.5 : 6.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Buy" />
+      <nodes>
+        <classShapeMoniker Id="6e0c8ee8-5332-4844-965d-3b8493b393dc" />
+        <classShapeMoniker Id="d522823c-9b89-4d0b-898f-0706cacc61d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.25 : 7.32859537760417); (2.25 : 11.2027498372396); (3.5 : 11.2027498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Person" />
+      <nodes>
+        <classShapeMoniker Id="6e0c8ee8-5332-4844-965d-3b8493b393dc" />
+        <classShapeMoniker Id="44aee63f-edc8-4394-85c4-dd8ddee110e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 7.32859537760417); (3.5 : 8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MarinaDbDataContext/User/User_Sales" />
+      <nodes>
+        <classShapeMoniker Id="6e0c8ee8-5332-4844-965d-3b8493b393dc" />
+        <classShapeMoniker Id="e46e1091-fa78-4ba0-986b-e2c3133333a0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 5.75121330413662); (3.625 : 5.37621330413662); (3.625 : 5.06899251302083); (3.12591745577925 : 5.06899251302083); (3.50091745577925 : 4.69399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MarinaDbDataContext/User/User_UserRol" />
+      <nodes>
+        <classShapeMoniker Id="6e0c8ee8-5332-4844-965d-3b8493b393dc" />
+        <classShapeMoniker Id="fe50751d-a539-489b-8719-540d5da7011b" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

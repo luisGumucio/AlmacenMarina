@@ -77,18 +77,6 @@
       <Association Name="User_Sales" Member="User" ThisKey="IdUser" OtherKey="IdUser" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.[User]" Member="User">
-    <Type Name="User">
-      <Column Name="IdUser" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Paswrod" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="User_Buy" Member="Buy" ThisKey="IdUser" OtherKey="IdUser" Type="Buy" />
-      <Association Name="User_Person" Member="Person" ThisKey="IdUser" OtherKey="IdUser" Type="Person" />
-      <Association Name="User_Sales" Member="Sales" ThisKey="IdUser" OtherKey="IdUser" Type="Sales" />
-      <Association Name="User_UserRol" Member="UserRol" ThisKey="IdUser" OtherKey="IdUser" Type="UserRol" />
-    </Type>
-  </Table>
   <Table Name="dbo.UserRol" Member="UserRol">
     <Type Name="UserRol">
       <Column Name="IdUser" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -107,6 +95,18 @@
       <Association Name="Product_DetailBuy" Member="DetailBuy" ThisKey="IdProduct" OtherKey="IdProduct" Type="DetailBuy" />
       <Association Name="Product_DetailSales" Member="DetailSales" ThisKey="IdProduct" OtherKey="IdProduct" Type="DetailSales" />
       <Association Name="Category_Product" Member="Category" ThisKey="IdCategory" OtherKey="IdCategory" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="IdUser" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Paswrod" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_Buy" Member="Buy" ThisKey="IdUser" OtherKey="IdUser" Type="Buy" />
+      <Association Name="User_Person" Member="Person" ThisKey="IdUser" OtherKey="IdUser" Type="Person" />
+      <Association Name="User_Sales" Member="Sales" ThisKey="IdUser" OtherKey="IdUser" Type="Sales" />
+      <Association Name="User_UserRol" Member="UserRol" ThisKey="IdUser" OtherKey="IdUser" Type="UserRol" />
     </Type>
   </Table>
 </Database>

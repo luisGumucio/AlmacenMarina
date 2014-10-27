@@ -19,7 +19,17 @@ namespace AlmacenMarina.Controls
         {
             try
             {
-                return db.User.Where(b => b.UserName == user.UserName && b.Paswrod == user.Paswrod).FirstOrDefault().UserRol.FirstOrDefault().Roles.NameRol;
+               var t= db.User.ToList();
+               String rol = "";
+                foreach (var item in t)
+                {
+                    if (item.UserName == user.UserName && user.Paswrod.Equals(Desepcritar(item.Paswrod)))
+                    {
+                        rol=item.UserRol.Select(b => b.Roles).FirstOrDefault().NameRol;
+                        break;
+                    }
+                }
+                return rol;
             }
             catch (Exception)
             {
@@ -73,6 +83,50 @@ namespace AlmacenMarina.Controls
         public String Message()
         {
             return message;
+        }
+
+        private String Desepcritar(String contraseña)
+        {
+            string[] vlEnEncrypt = contraseña.Split('/');
+
+
+            string[] vlEncode = vlEnEncrypt[0].Split(',');
+            string[] vlKey = vlEnEncrypt[1].Split(',');
+            string[] vlIV = vlEnEncrypt[2].Split(',');
+
+            //Creamos las variables byte[] y le creamos el tamaño 
+            byte[] vlByEncode = new byte[vlEncode.Length];
+            byte[] vlByKey = new byte[vlKey.Length];
+            byte[] vlByIV = new byte[vlIV.Length];
+
+            //Variable int que almacena la cantidad de item del array
+            int vlConEncode = vlEncode.Length - 1;
+            //Recorremos el string[] y le pasamos el valor al byte[]
+            for (int i = 0; i <= vlConEncode; i++)
+            {
+                vlByEncode[i] = byte.Parse(vlEncode[i]);
+            }
+
+            //Variable int que almacena la cantidad de item del array
+            int vlConKey = vlKey.Length - 1;
+            //Recorremos el string[] y le pasamos el valor al byte[]
+            for (int i = 0; i <= vlConKey; i++)
+            {
+                vlByKey[i] = byte.Parse(vlKey[i]);
+            }
+
+            //Variable int que almacena la cantidad de item del array
+            int vlConIV = vlEncode.Length - 1;
+            //Recorremos el string[] y le pasamos el valor al byte[]
+            for (int i = 0; i <= vlConIV; i++)
+            {
+                vlByIV[i] = byte.Parse(vlIV[i]);
+            }
+
+            //Mandamos a desencriptar el texto
+            string vlValue = RijndaelEncrypt.Decode(vlByEncode, vlByKey, vlByIV).ToString();
+
+            return vlValue;
         }
 
     }

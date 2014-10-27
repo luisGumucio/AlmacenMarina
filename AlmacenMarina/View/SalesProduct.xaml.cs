@@ -98,5 +98,10 @@ namespace AlmacenMarina.View
                 MessageBox.Show("error al registrar");
             }
         }
+
+        private void DatGridContent_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            
+        }
     }
 }
